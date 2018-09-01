@@ -1,6 +1,14 @@
 #include <stdio.h>
 void main()
 {
-	float a=5.019857477553;
-	printf("%.5f",a);
+	int a=0;
+	printf("enter ur numbers\n");
+	scanf("%d",&a);
+	for(;;)
+	{
+		if(a==42)
+			break;
+		else
+			scanf("%d",&a);
+	}
 }
