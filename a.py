@@ -267,7 +267,7 @@
 
 class Node:
     def __init__(self):
-        self.value = [None]*26
+        self.value = [None]*10
         self.end = False
 
 class trie:
@@ -276,13 +276,13 @@ class trie:
 
     def numb(self, num, n):
         for i in range (len(str(num))-n):
-        	num = num/10
+            num = num//10
         return (num%10)
 
     def insert(self, value):
         temp = self.start
-        for i in range (len(str(value)):
-            indx = self.numb(value, i)
+        for a in range (len(str(value))):
+            indx = self.numb(value, a)
             if not temp.value[indx]:
                 temp.value[indx] = Node()
             temp = temp.value[indx]
