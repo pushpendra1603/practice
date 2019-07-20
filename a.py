@@ -270,23 +270,39 @@ class Node:
         self.value = [None]*10
         self.end = False
 
+    def print_everything(self, accum):
+        if self.end == True:
+            print(accum)
+        for idx, c in enumerate(self.value):
+            if c is not None:
+                c.print_everything(accum + str(idx))
+
 class trie:
     def __init__(self):
         self.start = Node()
 
     def numb(self, num, n):
         for i in range (len(str(num))-n):
-            num = num//10
+        	num = num//10
         return (num%10)
 
-    def insert(self, value):
+    def insert(self, value): # insert is wrong
         temp = self.start
         for a in range (len(str(value))):
             indx = self.numb(value, a)
+#        for i in range (len(str(value))):
+#            indx = self.numb(value, i)
+#            print(indx, end='')
             if not temp.value[indx]:
                 temp.value[indx] = Node()
             temp = temp.value[indx]
+        print()
         temp.end = True
+    
+
+    def print(self):
+        start = self.start
+        start.print_everything("")
 
 
 n=[6,1,3,5,2,7,32]
@@ -294,3 +310,4 @@ tr = trie()
 for i in range(len(n)):
     tr.insert(n[i])
 print(tr.start)
+print(tr.print())
